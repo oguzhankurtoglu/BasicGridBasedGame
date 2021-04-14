@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject Page1;// Get Main Menu Parent Object
     [SerializeField] private GameObject Page2;// Get GamePlay parent object
+    [SerializeField] private InputField GridSize;// Get GamePlay parent object
     public static event Action OnButtonClicked; // button clicked event for check neighbours situation
     public static void ClickButton() // wrap function for event
     {

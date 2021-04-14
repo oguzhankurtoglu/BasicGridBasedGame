@@ -13,7 +13,6 @@ public class GridManager : MonoBehaviour
     {
         _gridSize = int.Parse(_inputText.text);         //Convert to integer
         Tiles = new ActiveX[_gridSize, _gridSize];  
-        Camera.main.orthographicSize = _gridSize * 2;   //adjusting the camera distance to fit any size array on the screen
         CreateGrid();
     }
 
@@ -39,6 +38,24 @@ public class GridManager : MonoBehaviour
         transform.position = new Vector2(GridW/2+tileSize/2, GridW / 2 + tileSize / 2); //set the position each tile parent object
     }
 
-    
 
+    private void Update()
+    {
+        CameraFit();//( in Update function for easy testing,Can be put to Start for performance)
+
+    }
+    private void CameraFit()//adjusting the camera distance to fit any size array on the screen 
+    {
+        if (Screen.width >= Screen.height)
+        {
+
+            Camera.main.orthographicSize = _gridSize * 2;
+        }
+        else
+        {
+            float width = Screen.width;
+            float height = Screen.height;
+            Camera.main.orthographicSize = _gridSize * (height / width) * 2;  //to keep the vertical ratio
+        }
+    }
 }
