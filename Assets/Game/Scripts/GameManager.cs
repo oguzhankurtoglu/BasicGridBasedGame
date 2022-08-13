@@ -1,20 +1,24 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+namespace Game.Scripts
 {
-    [SerializeField] private GameObject Page1;// Get Main Menu Parent Object
-    [SerializeField] private GameObject Page2;// Get GamePlay parent object
-    [SerializeField] private InputField GridSize;// Get GamePlay parent object
-    public static event Action OnButtonClicked; // button clicked event for check neighbours situation
-    public static void ClickButton() // wrap function for event
+    public class GameManager : MonoBehaviour
     {
-        OnButtonClicked?.Invoke();
-    }
-    public void StartButton() // when press to start button
-    {
-        Page1.SetActive(false);
-        Page2.SetActive(true);
+        [SerializeField] private GameObject Page1;// Get Main Menu Parent Object
+        [SerializeField] private GameObject Page2;// Get GamePlay parent object
+        [SerializeField] private InputField GridSize;// Get GamePlay parent object
+        public static event Action OnButtonClicked; // button clicked event for check neighbours situation
+        public static void ClickButton() // wrap function for event
+        {
+            OnButtonClicked?.Invoke();
+        }
+        public void StartButton() // when press to start button
+        {
+            Page1.SetActive(false);
+            Page2.SetActive(true);
+        }
+        
     }
 }
